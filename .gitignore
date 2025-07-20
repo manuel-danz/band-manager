@@ -2,7 +2,9 @@
 __pycache__/
 *.pyc
 bandmanager.db
+*.sqlite
 
 # PHP / Composer
 vendor/
 .env
+config.php
