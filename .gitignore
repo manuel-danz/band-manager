@@ -1,0 +1,8 @@
+# Ignore python artefacts
+__pycache__/
+*.pyc
+bandmanager.db
+
+# PHP / Composer
+vendor/
+.env
