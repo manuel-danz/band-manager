@@ -8,19 +8,14 @@ Dieses Projekt ist eine sehr einfache Webanwendung zur Verwaltung einer Band. Si
    ```bash
    mysql -u USER -p bandmanager < schema.sql
    ```
-2. Passe bei Bedarf die Datenbank-Zugangsdaten über Umgebungsvariablen an:
-   - `DB_HOST` (Standard: `localhost`)
-   - `DB_USER` (Standard: `root`)
-   - `DB_PASS` (Standard: leer)
-   - `DB_NAME` (Standard: `bandmanager`)
-   - `APP_USER` (Standard: `admin`)
-   - `APP_PASS` (Standard: `secret`)
+2. Kopiere die Datei `config.example.php` zu `config.php` und passe bei Bedarf
+   die Zugangsdaten und das Login an.
 3. Starte einen PHP-Webserver im Projektverzeichnis:
    ```bash
    php -S localhost:8000 -t public
    ```
 4. Rufe im Browser `http://localhost:8000` auf.
-   Du wirst per HTTP Basic Auth nach Benutzername und Passwort gefragt (`admin`/`secret`, sofern nicht über Umgebungsvariablen geändert).
+   Du wirst per HTTP Basic Auth nach Benutzername und Passwort gefragt (`admin`/`secret`, sofern nicht in der `config.php` angepasst).
 
 Die Oberfläche basiert auf Bootstrap und ist somit mobilfreundlich.
 

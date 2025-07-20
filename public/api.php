@@ -1,8 +1,9 @@
 <?php
 header('Content-Type: application/json');
 
-$APP_USER = getenv('APP_USER') ?: 'admin';
-$APP_PASS = getenv('APP_PASS') ?: 'secret';
+$config = require __DIR__ . '/../config.php';
+$APP_USER = $config['APP_USER'] ?? 'admin';
+$APP_PASS = $config['APP_PASS'] ?? 'secret';
 if (!isset($_SERVER['PHP_AUTH_USER']) ||
     $_SERVER['PHP_AUTH_USER'] !== $APP_USER ||
     $_SERVER['PHP_AUTH_PW']   !== $APP_PASS) {
@@ -12,10 +13,10 @@ if (!isset($_SERVER['PHP_AUTH_USER']) ||
     exit;
 }
 
-$DB_HOST = getenv('DB_HOST') ?: 'localhost';
-$DB_USER = getenv('DB_USER') ?: 'root';
-$DB_PASS = getenv('DB_PASS') ?: '';
-$DB_NAME = getenv('DB_NAME') ?: 'bandmanager';
+$DB_HOST = $config['DB_HOST'] ?? 'localhost';
+$DB_USER = $config['DB_USER'] ?? 'root';
+$DB_PASS = $config['DB_PASS'] ?? '';
+$DB_NAME = $config['DB_NAME'] ?? 'bandmanager';
 
 $mysqli = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
 if ($mysqli->connect_errno) {

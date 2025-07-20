@@ -6,3 +6,4 @@ bandmanager.db
 # PHP / Composer
 vendor/
 .env
+config.php

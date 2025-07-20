@@ -1,6 +1,7 @@
 <?php
-$APP_USER = getenv('APP_USER') ?: 'admin';
-$APP_PASS = getenv('APP_PASS') ?: 'secret';
+$config = require __DIR__ . '/../config.php';
+$APP_USER = $config['APP_USER'] ?? 'admin';
+$APP_PASS = $config['APP_PASS'] ?? 'secret';
 if (!isset($_SERVER['PHP_AUTH_USER']) ||
     $_SERVER['PHP_AUTH_USER'] !== $APP_USER ||
     $_SERVER['PHP_AUTH_PW']   !== $APP_PASS) {
